@@ -5,12 +5,13 @@ source ./http/controllers/hello.world.sh
 
 function router.route {
     ROUTE="${1}"
+    METHOD="${2}"
 
-    case ${ROUTE} in
-        /api/v1/hello)
+    case "${METHOD}:${ROUTE}" in
+        GET:/api/v1/hello)
             controller.helloWorld.success
             ;;
-        /api/v1/hello/forbidden)
+        GET:/api/v1/hello/forbidden)
             controller.helloWorld.forbidden
             ;;
         *)

@@ -2,6 +2,10 @@
 
 This is an MVC Web Framework writtein in bash... because why not?
 
-## Gettin Started
+## Getting Started
 
-To start the server you simple run `server.sh` and it starts up the application.
+To start the server you can simply run `./server.sh` and it starts up the application.
+
+## Application Configuration
+
+It operates on a `/./config/config.sh` file that's included when the application bootstraps itself.

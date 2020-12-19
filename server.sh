@@ -25,15 +25,26 @@ trap "rm -f out" EXIT
 
 while true; do
   cat out | nc -l "${PORT}" > >(
-    export REQUEST=
+    export ROUTE=
+    export METHOD=
 
     while read -r line; do
       line=$(echo "$line" | tr -d '\r\n')
 
       if echo "$line" | grep -qE '^GET /'; then
-        REQUEST=$(echo "$line" | cut -d ' ' -f2)
+        ROUTE=$(echo "$line" | cut -d ' ' -f2)
+        METHOD=GET
+      elif echo "$line" | grep -qE '^POST /'; then
+        ROUTE=$(echo "$line" | cut -d ' ' -f2)
+        METHOD=POST
+      elif echo "$line" | grep -qE '^PUT /'; then
+        ROUTE=$(echo "$line" | cut -d ' ' -f2)
+        METHOD=PUT
+      elif echo "$line" | grep -qE '^DELETE /'; then
+        ROUTE=$(echo "$line" | cut -d ' ' -f2)
+        METHOD=DELETE
       elif [ -z "$line" ]; then
-        router.route ${REQUEST} > out
+        router.route ${ROUTE} ${METHOD} > out
       fi
     done
   )

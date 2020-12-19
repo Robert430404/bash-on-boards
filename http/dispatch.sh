@@ -1,7 +1,13 @@
+##
+# Handles dispatch for HTTP requests.
+##
 function dispatch {
     echo "class for dispatching HTTP responses"
 }
 
+##
+# Dispatches a successful response
+##
 function dispatch.success {
     local CONTENTS=${1}
 
@@ -14,6 +20,9 @@ ${CONTENTS}
 "
 }
 
+##
+# Dispathces a forbidden response
+##
 function dispatch.forbidden {
     local CONTENTS=${1:-Forbidden}
 
@@ -26,6 +35,9 @@ ${CONTENTS}
 "
 }
 
+##
+# Dispatches a not found response
+##
 function dispatch.notFound {
     local CONTENTS=${1:-Not Found}
 
