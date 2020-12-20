@@ -9,12 +9,14 @@ function dispatch {
 # Dispatches a successful response
 ##
 function dispatch.success {
-    local CONTENTS=${1}
+    local CONTENTS=${1:-\{\"status\": \"success\"\}}
+    local CONTENT_TYPE="${2:-application/json}"
 
     echo "\
 HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Length: $((${#CONTENTS} + 2))
+Content-Type: ${CONTENT_TYPE}
 
 ${CONTENTS}
 "
@@ -24,12 +26,14 @@ ${CONTENTS}
 # Dispathces a forbidden response
 ##
 function dispatch.forbidden {
-    local CONTENTS=${1:-Forbidden}
+    local CONTENTS=${1:-\{\"status\": \"forbidden\"\}}
+    local CONTENT_TYPE="${2:-application/json}"
 
     echo "\
 HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Length: $((${#CONTENTS} + 2))
+Content-Type: ${CONTENT_TYPE}
 
 ${CONTENTS}
 "
@@ -39,12 +43,14 @@ ${CONTENTS}
 # Dispatches a not found response
 ##
 function dispatch.notFound {
-    local CONTENTS=${1:-Not Found}
+    local CONTENTS=${1:-\{\"status\": \"not found\"\}}
+    local CONTENT_TYPE=${2:-application/json}
 
     echo "\
 HTTP/1.1 404 NOT FOUND
 Connection: keep-alive
 Content-Length: $((${#CONTENTS} + 2))
+Content-Type: ${CONTENT_TYPE}
 
 ${CONTENTS}
 "
