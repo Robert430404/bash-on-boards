@@ -33,3 +33,21 @@ function renderer.text.notFound {
 
     dispatch.notFound "${CONTENTS}" "text"
 }
+
+function renderer.json {
+    local CONTENTS=${1}
+
+    dispatch.success "${CONTENTS}" "application/json"
+}
+
+function renderer.json.forbidden {
+    local CONTENTS=${1}
+
+    dispatch.forbidden "${CONTENTS}" "application/json"
+}
+
+function renderer.json.notFound {
+    local CONTENTS=${1}
+
+    dispatch.notFound "${CONTENTS}" "application/json"
+}
