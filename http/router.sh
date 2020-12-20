@@ -1,7 +1,7 @@
 ##
 # Load controllers
 ##
-source ./http/controllers/hello.world.sh
+source ./providers/routing.sh
 
 function router.route {
     ROUTE="${1}"

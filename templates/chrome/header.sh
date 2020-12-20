@@ -1,4 +1,4 @@
-function templates.header.header {
+function templates.chrome.header {
     local BASE_CSS=`cat ./templates/styles/base.css`
 
     echo "\

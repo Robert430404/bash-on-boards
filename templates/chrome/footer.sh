@@ -1,4 +1,4 @@
-function templates.footer.footer {
+function templates.chrome.footer {
     echo "\
     </section>
 </body>
