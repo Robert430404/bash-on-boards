@@ -8,10 +8,10 @@ function router.route {
     METHOD="${2}"
 
     case "${METHOD}:${ROUTE}" in
-        GET:/api/v1/hello)
+        GET:/hello)
             controller.helloWorld.success
             ;;
-        GET:/api/v1/hello/forbidden)
+        GET:/hello/forbidden)
             controller.helloWorld.forbidden
             ;;
         *)

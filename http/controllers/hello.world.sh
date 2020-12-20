@@ -1,11 +1,18 @@
+##
+# Source dependencies
+##
+source ./templates/hello.sh
+
 function controller.helloWorld {
     echo "Controller for the hello world application"
 }
 
 function controller.helloWorld.success {
-    dispatch.success "You can be here!"
+    local TEMPLATE=`templates.hello.success`
+
+    renderer.html "${TEMPLATE}"
 }
 
 function controller.helloWorld.forbidden {
-    dispatch.forbidden "You can't be here!"
+    renderer.text.forbidden "You can't be here!"
 }
