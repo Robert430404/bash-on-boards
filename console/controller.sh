@@ -36,6 +36,14 @@ function controller.${LOWER}.delete {
 " > "${FILE}"
 
 # Add it to the provider
-echo "source ./http/controllers/${FILENAME}" >> "${PWD}/../providers/routing.sh"
+PROVIDER="${PWD}/../providers/routing.sh"
+
+if [[ $(tail -c1 ${PROVIDER} | wc -l) == 1 ]]; then
+  head -c -1 ${PROVIDER} > ${PROVIDER}.tmp
+  mv ${PROVIDER}.tmp ${PROVIDER}
+fi
+
+echo "
+source ./http/controllers/${FILENAME}" >> "${PWD}/../providers/routing.sh"
 
 echo "Controller created!"
