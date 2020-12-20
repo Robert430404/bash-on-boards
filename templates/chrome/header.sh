@@ -1,3 +1,6 @@
+##
+# Define the header chrome
+##
 function templates.chrome.header {
     local BASE_CSS=`cat ./templates/styles/base.css`
 

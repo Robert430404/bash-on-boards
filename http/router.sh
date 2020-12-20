@@ -3,6 +3,9 @@
 ##
 source ./providers/routing.sh
 
+##
+# Route the request to the appropriate place
+##
 function router.route {
     ROUTE="${1}"
     METHOD="${2}"
