@@ -1,9 +1,4 @@
 ##
-# Load controllers
-##
-source ./providers/routing.sh
-
-##
 # Route the request to the appropriate place
 ##
 function router.route {

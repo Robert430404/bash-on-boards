@@ -30,7 +30,7 @@ function dispatch.success {
     local CONTENTS=${1:-\{\"status\": \"success\"\}}
     local CONTENT_TYPE="${2:-application/json}"
 
-    dispatch.request "200 OK" ${CONTENTS} ${CONTENT_TYPE}
+    dispatch.request "200 OK" "${CONTENTS}" "${CONTENT_TYPE}"
 }
 
 ##
@@ -40,7 +40,7 @@ function dispatch.badRequest {
     local CONTENTS=${1:-\{\"status\": \"bad request\"\}}
     local CONTENT_TYPE="${2:-application/json}"
 
-    dispatch.request "400 BAD REQUEST" ${CONTENTS} ${CONTENT_TYPE}
+    dispatch.request "400 BAD REQUEST" "${CONTENTS}" "${CONTENT_TYPE}"
 }
 
 ##
@@ -50,7 +50,7 @@ function dispatch.unauthorized {
     local CONTENTS=${1:-\{\"status\": \"bad request\"\}}
     local CONTENT_TYPE="${2:-application/json}"
 
-    dispatch.request "401 UNAUTHORIZED" ${CONTENTS} ${CONTENT_TYPE}
+    dispatch.request "401 UNAUTHORIZED" "${CONTENTS}" "${CONTENT_TYPE}"
 }
 
 ##
@@ -60,7 +60,7 @@ function dispatch.forbidden {
     local CONTENTS=${1:-\{\"status\": \"forbidden\"\}}
     local CONTENT_TYPE="${2:-application/json}"
 
-    dispatch.request "403 FORBIDDEN" ${CONTENTS} ${CONTENT_TYPE}
+    dispatch.request "403 FORBIDDEN" "${CONTENTS}" "${CONTENT_TYPE}"
 }
 
 ##
@@ -70,5 +70,5 @@ function dispatch.notFound {
     local CONTENTS=${1:-\{\"status\": \"not found\"\}}
     local CONTENT_TYPE=${2:-application/json}
 
-    dispatch.request "404 NOT FOUND" ${CONTENTS} ${CONTENT_TYPE}
+    dispatch.request "404 NOT FOUND" "${CONTENTS}" "${CONTENT_TYPE}"
 }

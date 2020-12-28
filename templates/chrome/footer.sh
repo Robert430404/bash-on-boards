@@ -3,8 +3,6 @@
 ##
 function templates.chrome.footer {
     echo "\
-    </section>
-</body>
-</html>
+<h2>Footer Goes Here</h2>
 "
 }

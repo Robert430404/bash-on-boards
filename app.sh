@@ -1,6 +1,5 @@
 ##
-# Load application dependencies
+# Load service providers
 ##
-source ./http/dispatch.sh
-source ./http/renderer.sh
-source ./http/router.sh
+source ./providers/routing.sh
+source ./providers/http.sh
