@@ -34,25 +34,16 @@ They then launch a wizard and walk you through the rest of the process.
 
 ## Registering Routes
 
-In `./http/router.sh` you can register routes to execute specific bash
+In `./http/routes.sh` you can register routes to execute specific bash
 functions. Typically you'll bind the route to a controller method. To
-register new routes, add a new case to the `./http/router.sh` and call
-the function from inside of your controller.
+register new routes, add a new entry to the map in `./http/routes.sh`.
+
+The map expects the string value to be the controller action.
 
 ```bash
-##
-# Load controllers
-##
-source ./http/controllers/your.controller.sh
+# Expose the route map
+declare -A ROUTES_MAP
 
-function router.route {
-    ROUTE="${1}"
-    METHOD="${2}"
-
-    case "${METHOD}:${ROUTE}" in
-        GET:/api/v1/your-route)
-            controller.yourController.routeMethod
-            ;;
-    esac
-}
+# Register routes
+ROUTES_MAP[METHOD:ROUTE]="controller.helloWorld.success"
 ```

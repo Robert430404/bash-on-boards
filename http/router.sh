@@ -4,16 +4,17 @@
 function router.route {
     local ROUTE="${1}"
     local METHOD="${2}"
+    local HANDLER=${ROUTES_MAP[$METHOD:$ROUTE]}
 
-    case "${METHOD}:${ROUTE}" in
-        GET:/hello)
-            controller.helloWorld.success
-            ;;
-        GET:/hello/forbidden)
-            controller.helloWorld.forbidden
-            ;;
-        *)
-            dispatch.notFound
-            ;;
-    esac
+    if [[ ! -z $HANDLER ]]; then
+        $HANDLER
+
+        return;
+    fi
+    
+    # Dispatch a not found by default
+    renderer.json.notFound '{
+        "status": "not found",
+        "handler": "default renderer call in router.sh"
+    }'
 }
