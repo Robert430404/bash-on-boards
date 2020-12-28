@@ -2,8 +2,8 @@
 # Route the request to the appropriate place
 ##
 function router.route {
-    ROUTE="${1}"
-    METHOD="${2}"
+    local ROUTE="${1}"
+    local METHOD="${2}"
 
     case "${METHOD}:${ROUTE}" in
         GET:/hello)
