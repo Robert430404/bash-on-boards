@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 ##
 # Load the dependencies for the template
 ##
@@ -8,10 +10,17 @@ source ./templates/chrome/footer.sh
 # Render the base template
 ##
 function templates.layouts.base {
-    local INNER=${1}
-    local HEADER=`templates.chrome.header`
-    local FOOTER=`templates.chrome.footer`
-    local BASE_CSS=`cat ./templates/styles/base.css`
+    local INNER="${1}"
+
+    # Define the vars
+    local HEADER
+    local FOOTER
+    local BASE_CSS
+
+    # Assign to avoid masking bad return
+    HEADER=$(templates.chrome.header)
+    FOOTER=$(templates.chrome.footer)
+    BASE_CSS=$(cat ./templates/styles/base.css)
 
     echo "\
 <!DOCTYPE html>

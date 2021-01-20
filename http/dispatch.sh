@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 ##
 # Handles dispatch for HTTP requests.
 ##

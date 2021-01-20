@@ -5,7 +5,7 @@
 ##
 WORKING_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-cd "${WORKING_DIR}"
+cd "${WORKING_DIR}" || exit 1
 
 ##
 # Load the config file for the application
@@ -55,7 +55,7 @@ while true; do
         ROUTE=$(echo "$line" | cut -d ' ' -f2)
         METHOD=DELETE
       elif [ -z "$line" ]; then
-        router.route ${ROUTE} ${METHOD} > out
+        router.route "${ROUTE}" "${METHOD}" > out
       fi
     done
   )

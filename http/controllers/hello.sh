@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 ##
 # Source dependencies
 ##
@@ -14,7 +16,11 @@ function controller.helloWorld {
 # Success method for the hello world controller
 ##
 function controller.helloWorld.success {
-    local TEMPLATE=`templates.hello.success`
+    # Declare here
+    local TEMPLATE
+
+    # Assign to avoid masking return
+    TEMPLATE=$(templates.hello.success)
 
     renderer.html "${TEMPLATE}"
 }

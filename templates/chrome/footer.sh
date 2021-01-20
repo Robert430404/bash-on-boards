@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 ##
 # Define the footer chrome
 ##

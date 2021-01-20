@@ -5,7 +5,7 @@
 ##
 WORKING_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-cd "${WORKING_DIR}"
+cd "${WORKING_DIR}" || exit 1
 
 ##
 # Kick off the wizard
@@ -13,7 +13,7 @@ cd "${WORKING_DIR}"
 echo "What is your controller name?"
 
 # Request the controller name
-read CONTROLLER
+read -r CONTROLLER
 
 # Parse the file name and file location
 LOWER=${CONTROLLER,,}
@@ -46,9 +46,9 @@ function controller.${LOWER}.delete {
 PROVIDER="${PWD}/../providers/routing.sh"
 
 # make sure there is no trailing white space
-if [[ $(tail -c1 ${PROVIDER} | wc -l) == 1 ]]; then
-  head -c -1 ${PROVIDER} > ${PROVIDER}.tmp
-  mv ${PROVIDER}.tmp ${PROVIDER}
+if [[ $(tail -c1 "${PROVIDER}" | wc -l) == 1 ]]; then
+  head -c -1 "${PROVIDER}" > "${PROVIDER}.tmp"
+  mv "${PROVIDER}.tmp" "${PROVIDER}"
 fi
 
 # append the controller

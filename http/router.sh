@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 ##
 # Route the request to the appropriate place
 ##
@@ -6,7 +8,7 @@ function router.route {
     local METHOD="${2}"
     local HANDLER=${ROUTES_MAP[$METHOD:$ROUTE]}
 
-    if [[ ! -z $HANDLER ]]; then
+    if [[ -n $HANDLER ]]; then
         $HANDLER
 
         return;
