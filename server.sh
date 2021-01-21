@@ -30,8 +30,12 @@ trap "rm -f out" EXIT
 while true; do
   ##
   # Cat the output of netcat and capture it for parsing
-  ##
-  cat out | nc -l "${PORT}" > >(
+  #
+  # We need this particular piece of cat abuse so the 
+  # content is properly piped to nc
+  #
+  # shellcheck disable=SC2002
+  cat "out" | nc -l "${PORT}" > >(
     # Export so we can reassign as we iterate
     export ROUTE=
     export METHOD=
