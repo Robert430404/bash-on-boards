@@ -21,19 +21,23 @@ echo "\
 #!/bin/bash
 
 function controller.${LOWER}.get {
-    # Intended to be bound to a GET route
+  # Intended to be bound to a GET route
+  return
 }
 
 function controller.${LOWER}.create {
-    # Intended to be bound to a POST route
+  # Intended to be bound to a POST route
+  return
 } 
 
 function controller.${LOWER}.update {
-    # Intended to be bound to a PUT route
+  # Intended to be bound to a PUT route
+  return
 } 
 
 function controller.${LOWER}.delete {
-    # Intended to be bound to a DELETE route
+  # Intended to be bound to a DELETE route
+  return
 } 
 " > "${FILE}"
 
