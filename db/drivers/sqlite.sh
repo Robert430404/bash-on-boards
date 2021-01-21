@@ -4,33 +4,33 @@
 # Insert a record into the database
 ##
 function db.drivers.insert {
-  return
+  sqlite3 "${DB_FILE}"
 }
 
 ##
 # Find a record in the database
 ##
 function db.drivers.find {
-  return
+  sqlite3 "${DB_FILE}"
 }
 
 ##
 # Find all records in the database
 ##
 function db.drivers.findAll {
-  return
+  sqlite3 "${DB_FILE}"
 }
 
 ##
 # Update a record in the database
 ##
 function db.drivers.update {
-  return
+  sqlite3 "${DB_FILE}"
 }
 
 ##
 # Delete a record from the database
 ##
 function db.drivers.delete {
-  return
+  sqlite3 "${DB_FILE}"
 }

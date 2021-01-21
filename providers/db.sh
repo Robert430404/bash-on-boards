@@ -3,8 +3,9 @@
 ##
 # Load in your DB driver
 ##
-source ./db/drivers/sqlite.sh
-
+if [[ "${DB_DRIVER}" == "sqlite" ]]; then
+  source ./db/drivers/sqlite.sh
+fi
 ##
 # Register models with the application
 ##
