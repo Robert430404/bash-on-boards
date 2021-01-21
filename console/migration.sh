@@ -1,12 +1,5 @@
 #!/usr/bin/bash
 
-##
-# Make sure we run the server from the proper directory
-##
-WORKING_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-
-cd "${WORKING_DIR}" || exit 1
-
 CREATE_ACTION="create"
 MIGRATE_ACTION="run"
 
@@ -40,7 +33,7 @@ fi
 if [[ "${CONFIRMATION}" == "yes" && "${ACTION}" == "${MIGRATE_ACTION}" ]]; then
   echo "Running the migrations."
 
-  source ./../db/migrations/migrate.sh
+  source ./db/migrations/migrate.sh
 fi
 
 exit 0

@@ -27,17 +27,6 @@ are a suite of console tools to help you generate boiler plate.
 You can run the scripts by executing them from the root of the project.
 They then launch a wizard and walk you through the rest of the process.
 
-```bash
-# Creates a controller file with all methods
-./console/controller.sh
-
-# Walks you through creating a migration file, or running migrations
-./console/migration.sh
-
-# Wals you through creating a seed file, or running seeds
-./console/seed.sh
-```
-
 ## Registering Routes
 
 In `./http/routes.sh` you can register routes to execute specific bash
