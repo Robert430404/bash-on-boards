@@ -58,6 +58,10 @@ elif [[ "${ACTION}" == "${CREATE_ACTION}" ]]; then
   if [[ "${SUB_ACTION}" == "${CREATE_TABLE_ACTION}" ]]; then
     migrations.createTable
   fi
+
+  if [[ "${SUB_ACTION}" == "${CREATE_GENERIC_ACTION}" ]]; then
+    migrations.generic
+  fi
 else
   dialogs.echoAndExit "Invalid action requested."
 fi
